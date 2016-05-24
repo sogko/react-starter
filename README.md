@@ -2,18 +2,19 @@
 Pragmatic starter kit for React + ES6 + Babel + Webpack + Tape.
 
 ## Quick start
-1 - Fork this repo.
-2 - ```$ npm install```
-3 - Profit!
 
-### Running hot-loaded development server using `webpack-dev=server`
+1. Fork this repo.
+2. ```$ npm install```
+3. Profit!
+
+#### Running hot-loaded development server using `webpack-dev=server`
 ```$ npm run dev```
 
-### Running tests
+#### Running tests
 To run tests using `tape` + `babel` for ES6:
 ```$ npm test```
 
-### To build for production
+#### To build for production
 ```$ npm run build```
 
 
@@ -23,6 +24,19 @@ Hate that slimy, dirty feeling when using work that isn't yours?
 Have serious trust issues?
 
 Why not build your own starter kit with the following recipes!
+
+__Table of content__
+
+- [React](#react)
+- [Babel + ES6](#babel-es6)
+- [Webpack](#webpack)
+  - [Webpack Loaders](#webpack-loaders)
+- [Unit tests with Tape](#unit-tests-for-react-using-tape)
+  - [Tape + ES6](#essential-tape--es6es2015)
+  - [React test utilities](#testing-utilities-for-react-components)
+- [Optional](#optional)
+
+----
 
 ### React
 Essential React dependencies
@@ -36,6 +50,8 @@ Library | Description
 $ npm install --save-dev react \
                          react-dom
 ```
+
+---
 
 ### Babel ES6
 Essential Babel config for using ES6/ES2015 with React
@@ -54,6 +70,8 @@ $ npm install --save-dev babel-core \
                          babel-plugin-transform-object-rest-spread
 ```
 
+---
+
 ### Webpack
 Essential module bundling using Webpack.
 
@@ -66,6 +84,8 @@ Library | Description
 $ npm install --save-dev webpack \
                          webpack-dev-server
 ```
+
+---
 
 ### Webpack Loaders
 Essential webpack loaders.
@@ -91,6 +111,9 @@ $ npm install --save-dev url-loader \
                          babel-loader \
                          react-hot-loader
 ```
+
+
+---
 
 ### Unit tests for React using Tape
 Essentials for pragmatic unit tests, free of magic.
@@ -128,6 +151,8 @@ $ npm install --save-dev enzyme \
 ```
 
 
+---
+
 ### Optional
 Other useful but non-core libraries for your React project that you might want to consider.
 
@@ -138,6 +163,9 @@ Library | Description
 [`classnames`](https://github.com/JedWatson/classnames) | A simple javascript utility for conditionally joining classNames together.
 [`autoprefixer`](https://github.com/postcss/autoprefixer) | PostCSS plugin to parse CSS and add vendor prefixes to CSS rules using values from Can I Use.
 [`react-router`](https://github.com/reactjs/react-router) | For better or worse,  de-facto routing library for React. (Some [alternatives discussed here](https://auth0.com/blog/2016/04/19/react-router-alternatives/))
+
+
+---
 
 
 ## License
