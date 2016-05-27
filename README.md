@@ -1,6 +1,8 @@
 # react-starter
 Pragmatic starter kit for React + ES6 + Babel + Webpack + Tape.
 
+No magic.
+
 ## Quick start
 
 1. Fork this repo.
@@ -25,6 +27,8 @@ $ ./node_modules/babel-tape-runner/bin/babel-tape-runner tests/*.jsx | faucet
 #### To build for production
 ```bash
 $ npm run build
+# or
+$ NODE_ENV=production webpack -p --config webpack.production.config.js --progress --profile --colors
 ```
 
 
