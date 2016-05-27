@@ -8,14 +8,24 @@ Pragmatic starter kit for React + ES6 + Babel + Webpack + Tape.
 3. Profit!
 
 #### Running hot-loaded development server using `webpack-dev=server`
-```$ npm run dev```
+```bash
+$ npm run dev
+# or
+$ webpack-dev-server --progress --profile --colors --hot
+```
 
 #### Running tests
 To run tests using `tape` + `babel` for ES6:
-```$ npm test```
+```bash
+$ npm test
+# or
+$ ./node_modules/babel-tape-runner/bin/babel-tape-runner tests/*.jsx | faucet
+```
 
 #### To build for production
-```$ npm run build```
+```bash
+$ npm run build
+```
 
 
 ## Recipes
