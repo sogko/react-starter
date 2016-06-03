@@ -1,13 +1,14 @@
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = [
 	{
 		test: /\.jsx?$/,
 		exclude: /(node_modules|bower_components)/,
-		loaders: ['react-hot', 'babel'],
+		loaders: ['react-hot', 'babel']
 	},
-
 	{
-		test: /\.css$/,
-		loader: 'style-loader!css-loader'
+    test: /\.css$/,
+    loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]!postcss-loader')
 	},
 	{
 		test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
