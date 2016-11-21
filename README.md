@@ -183,7 +183,7 @@ Read this article on [why you'd want to use `tape` instead of unit-test framewor
 Library | Description
 ------------ | -------------
 [`tape`](https://github.com/substack/tape) | Tap-producing test harness for node and browsers
-~~[`babel-tape-runner`](https://github.com/wavded/babel-tape-runner) | A test runner for tape that utilizes babel in order to run test suites that include ESNext/Harmony features.~~ _(We can use `--require babel-register` to allow `tape` to run ESNext features)_
+~~[`babel-tape-runner`](https://github.com/wavded/babel-tape-runner)~~| ~~A test runner for tape that utilizes babel in order to run test suites that include ESNext/Harmony features.~~ _(We can use `--require babel-register` to allow `tape` to run ESNext features)_
 [`babel-register`](https://github.com/babel/babel/tree/master/packages/babel-register) | To allow `tape` to compile es6/esnext code.
 [`faucet`](https://github.com/substack/faucet) | Human-readable TAP summarizer. Transform output from `tape` into something you would actually want to read from running tests.
 [`nyc`](https://github.com/istanbuljs/nyc) | For coverage reporting
