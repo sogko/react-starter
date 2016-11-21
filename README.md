@@ -21,7 +21,49 @@ To run tests using `tape` + `babel` for ES6:
 ```bash
 $ npm test
 # or
-$ ./node_modules/babel-tape-runner/bin/babel-tape-runner tests/*.jsx | faucet
+$ tape --require babel-register tests/*.jsx | faucet
+```
+
+```
+> tape --require babel-register tests/*.jsx | faucet
+
+✓ <Foo /> adds two numbers
+# tests 1
+# pass  1
+✓ ok
+```
+
+#### Running coverage reporting
+To run tests using `tape` + `babel` for ES6:
+```bash
+$ npm run coverage
+# or
+$ nyc -e .jsx tape --require babel-register tests/*.jsx
+```
+
+```
+> nyc -e .jsx tape --require babel-register tests/*.jsx
+
+TAP version 13
+# <Foo /> adds two numbers
+ok 1 should be equal
+
+1..1
+# tests 1
+# pass  1
+
+# ok
+
+--------------|----------|----------|----------|----------|----------------|
+File          |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+--------------|----------|----------|----------|----------|----------------|
+All files     |      100 |      100 |      100 |      100 |                |
+ src          |      100 |      100 |      100 |      100 |                |
+  Foo.jsx     |      100 |      100 |      100 |      100 |                |
+ tests        |      100 |      100 |      100 |      100 |                |
+  FooTest.jsx |      100 |      100 |      100 |      100 |                |
+--------------|----------|----------|----------|----------|----------------|
+
 ```
 
 #### To build for production
@@ -48,6 +90,7 @@ __Table of content__
 - [Unit tests with Tape](#unit-tests-for-react-using-tape)
   - [Tape + ES6](#essential-tape--es6es2015)
   - [React test utilities](#testing-utilities-for-react-components)
+  - [Coverage reporting](#coverage-reporting)
 - [Optional](#optional)
 
 ----
@@ -75,13 +118,15 @@ Library | Description
 [`babel-core`](https://github.com/babel/babel) | Babel core library
 [`babel-preset-es2015`](https://github.com/babel/babel/tree/master/packages/babel-preset-es2015) | Babel preset for all es2015 plugins.
 [`babel-preset-react`](https://github.com/babel/babel/tree/master/packages/babel-preset-react) | Babel preset for all React plugins.
-[`babel-plugin-transform-object-rest-spread`](https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-object-rest-spreadhttps://github.com/facebook/react/tree/master/packages/react-dom) | Babel plugin for [Object Rest/Spread Properties in ECMAScript](https://github.com/sebmarkbage/ecmascript-rest-spread) <br/> _(Optional, but really, this is like having cake on a Monday)_ 
+[`babel-plugin-transform-object-rest-spread`](https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-object-rest-spread) | Babel plugin for [Object Rest/Spread Properties in ECMAScript](https://github.com/sebmarkbage/ecmascript-rest-spread) <br/> _(Optional, but really, this is like having cake on a Monday)_ 
+[`babel-plugin-transform-async-to-generator`](https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-async-to-generator) | Babel plugin for [Async Functions for ECMAScript](https://github.com/tc39/ecmascript-asyncawait) <br/> _(Again, optional, but hey, cakes for days)_ 
 
 ```bash
 $ npm install --save-dev babel-core \
                          babel-preset-es2015 \
                          babel-preset-react \
-                         babel-plugin-transform-object-rest-spread
+                         babel-plugin-transform-object-rest-spread \
+                         babel-plugin-transform-async-to-generator
 ```
 
 ---
@@ -138,14 +183,28 @@ Read this article on [why you'd want to use `tape` instead of unit-test framewor
 Library | Description
 ------------ | -------------
 [`tape`](https://github.com/substack/tape) | Tap-producing test harness for node and browsers
-[`babel-tape-runner`](https://github.com/wavded/babel-tape-runner) | A test runner for tape that utilizes babel in order to run test suites that include ESNext/Harmony features.
+~~[`babel-tape-runner`](https://github.com/wavded/babel-tape-runner) | A test runner for tape that utilizes babel in order to run test suites that include ESNext/Harmony features.~~ _(We can use `--require babel-register` to allow `tape` to run ESNext features)_
+[`babel-register`](https://github.com/babel/babel/tree/master/packages/babel-register) | To allow `tape` to compile es6/esnext code.
 [`faucet`](https://github.com/substack/faucet) | Human-readable TAP summarizer. Transform output from `tape` into something you would actually want to read from running tests.
+[`nyc`](https://github.com/istanbuljs/nyc) | For coverage reporting
 
 ```bash
 $ npm install --save-dev tape \
-                         babel-tape-runner \
-                         faucet
+                         babel-register \
+                         faucet \
+                         nyc
 ```
+
+
+#### Coverage reporting
+Library | Description
+------------ | -------------
+[`nyc`](https://github.com/istanbuljs/nyc) | For coverage reporting
+
+```bash
+$ npm install --save-dev nyc
+```
+
 
 #### Testing Utilities for React components
 
